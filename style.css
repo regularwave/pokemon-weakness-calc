@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+#deftypes {
+    width: 60%;
+    display: flex;
+    gap: 2px;
+}
+
+#type1 {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    overflow-y: auto;
+    max-height: 650px;
+}
+
+#type2 {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    overflow-y: auto;
+    max-height: 650px;
+}
+
+#wlist {
+    font-size: .8rem;
+    display: flex;
+    flex-direction: row;
+    padding: 1px;
+    border: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    max-width: 40%;
+}
+
+#typecard {
+    font-size: .7rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    flex: 1;
+    text-align: center;
+    width: 80px;
+}
+
+#typecard input {
+    display: none;
+}
+
+#typecard input:not(:checked)~.typeimg {
+    filter: grayscale(100%);
+    opacity: 25%;
+}
+
+#weakcard {
+    padding: 1rem;
+    text-align: center;
+
+}
+
+.typeimg {
+    height: 30px;
+    width: 30px;
+}
+
+#wresultcard {
+    border: 1px;
+    border-radius: 5px;
+    border-style: solid;
+}
+
+@media screen and (max-width: 768px) {}
