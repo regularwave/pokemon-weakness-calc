@@ -9,6 +9,10 @@ body {
     margin: 0;
     background-color: #555555;
     color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #container {
@@ -91,6 +95,7 @@ body {
 }
 
 footer {
+    font-size: .7rem;
     text-align: center;
 }
 
