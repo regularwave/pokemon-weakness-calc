@@ -197,4 +197,3 @@ fillTypeDiv(document.querySelector('#type2'), 2);
 
 document.getElementById("Normal1").checked = true;
 document.getElementById("None2").checked = true;
-
