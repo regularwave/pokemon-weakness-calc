@@ -1,3 +1,6 @@
+const visCount = document.getElementById('visCount');
+updateSiteCounter();
+
 const defTypes = [
     { name: "Normal", imgPath: "./img/Normal_icon_LA.png", Normal: 1, Fighting: 2, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 1, Ghost: 0, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 1 },
     { name: "Fighting", imgPath: "./img/Fighting_icon_LA.png", Normal: 1, Fighting: 1, Flying: 2, Poison: 1, Ground: 1, Rock: 0.5, Bug: 0.5, Ghost: 1, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 2, Ice: 1, Dragon: 1, Dark: 0.5, Fairy: 2 },
@@ -197,3 +200,11 @@ fillTypeDiv(document.querySelector('#type2'), 2);
 
 document.getElementById("Normal1").checked = true;
 document.getElementById("None2").checked = true;
+
+function updateSiteCounter() {
+    fetch('https://api.countapi.xyz/hit/regularwave_pokemon-weakness-calc')
+        .then(response => response.json())
+        .then(response => {
+            visCount.innerHTML = response.value;
+        })
+}
