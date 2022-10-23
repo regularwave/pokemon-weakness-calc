@@ -2,31 +2,40 @@ const visCount = document.getElementById('visCount');
 updateSiteCounter();
 
 const defTypes = [
-    { name: "Normal", imgPath: "./img/Normal_icon_LA.png", Normal: 1, Fighting: 2, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 1, Ghost: 0, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 1 },
-    { name: "Fighting", imgPath: "./img/Fighting_icon_LA.png", Normal: 1, Fighting: 1, Flying: 2, Poison: 1, Ground: 1, Rock: 0.5, Bug: 0.5, Ghost: 1, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 2, Ice: 1, Dragon: 1, Dark: 0.5, Fairy: 2 },
-    { name: "Flying", imgPath: "./img/Flying_icon_LA.png", Normal: 1, Fighting: 0.5, Flying: 1, Poison: 1, Ground: 0, Rock: 2, Bug: 0.5, Ghost: 1, Steel: 1, Fire: 1, Water: 1, Grass: 0.5, Electric: 2, Psychic: 1, Ice: 2, Dragon: 1, Dark: 1, Fairy: 1 },
-    { name: "Poison", imgPath: "./img/Poison_icon_LA.png", Normal: 1, Fighting: 0.5, Flying: 1, Poison: 0.5, Ground: 2, Rock: 1, Bug: 0.5, Ghost: 1, Steel: 1, Fire: 1, Water: 1, Grass: 0.5, Electric: 1, Psychic: 2, Ice: 1, Dragon: 1, Dark: 1, Fairy: 0.5 },
-    { name: "Ground", imgPath: "./img/Ground_icon_LA.png", Normal: 1, Fighting: 1, Flying: 1, Poison: 0.5, Ground: 1, Rock: 0.5, Bug: 1, Ghost: 1, Steel: 1, Fire: 1, Water: 2, Grass: 2, Electric: 0, Psychic: 1, Ice: 2, Dragon: 1, Dark: 1, Fairy: 1 },
-    { name: "Rock", imgPath: "./img/Rock_icon_LA.png", Normal: 0.5, Fighting: 2, Flying: 0.5, Poison: 0.5, Ground: 2, Rock: 1, Bug: 1, Ghost: 1, Steel: 2, Fire: 0.5, Water: 2, Grass: 2, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 1 },
-    { name: "Bug", imgPath: "./img/Bug_icon_LA.png", Normal: 1, Fighting: 0.5, Flying: 2, Poison: 1, Ground: 0.5, Rock: 2, Bug: 1, Ghost: 1, Steel: 1, Fire: 2, Water: 1, Grass: 0.5, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 1 },
-    { name: "Ghost", imgPath: "./img/Ghost_icon_LA.png", Normal: 0, Fighting: 0, Flying: 1, Poison: 0.5, Ground: 1, Rock: 1, Bug: 0.5, Ghost: 2, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 2, Fairy: 1 },
-    { name: "Steel", imgPath: "./img/Steel_icon_LA.png", Normal: 0.5, Fighting: 2, Flying: 0.5, Poison: 0, Ground: 2, Rock: 0.5, Bug: 0.5, Ghost: 1, Steel: 0.5, Fire: 2, Water: 1, Grass: 0.5, Electric: 1, Psychic: 0.5, Ice: 0.5, Dragon: 0.5, Dark: 1, Fairy: 0.5 },
-    { name: "Fire", imgPath: "./img/Fire_icon_LA.png", Normal: 1, Fighting: 1, Flying: 1, Poison: 1, Ground: 2, Rock: 2, Bug: 0.5, Ghost: 1, Steel: 0.5, Fire: 0.5, Water: 2, Grass: 0.5, Electric: 1, Psychic: 1, Ice: 0.5, Dragon: 1, Dark: 1, Fairy: 0.5 },
-    { name: "Water", imgPath: "./img/Water_icon_LA.png", Normal: 1, Fighting: 1, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 1, Ghost: 1, Steel: 0.5, Fire: 0.5, Water: 0.5, Grass: 2, Electric: 2, Psychic: 1, Ice: 0.5, Dragon: 1, Dark: 1, Fairy: 1 },
-    { name: "Grass", imgPath: "./img/Grass_icon_LA.png", Normal: 1, Fighting: 1, Flying: 2, Poison: 2, Ground: 0.5, Rock: 1, Bug: 2, Ghost: 1, Steel: 1, Fire: 2, Water: 0.5, Grass: 0.5, Electric: 0.5, Psychic: 1, Ice: 2, Dragon: 1, Dark: 1, Fairy: 1 },
-    { name: "Electric", imgPath: "./img/Electric_icon_LA.png", Normal: 1, Fighting: 1, Flying: 0.5, Poison: 1, Ground: 2, Rock: 1, Bug: 1, Ghost: 1, Steel: 0.5, Fire: 1, Water: 1, Grass: 1, Electric: 0.5, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 1 },
-    { name: "Psychic", imgPath: "./img/Psychic_icon_LA.png", Normal: 1, Fighting: 0.5, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 2, Ghost: 2, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 0.5, Ice: 1, Dragon: 1, Dark: 2, Fairy: 1 },
-    { name: "Ice", imgPath: "./img/Ice_icon_LA.png", Normal: 1, Fighting: 2, Flying: 1, Poison: 1, Ground: 1, Rock: 2, Bug: 1, Ghost: 1, Steel: 2, Fire: 2, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 0.5, Dragon: 1, Dark: 1, Fairy: 1 },
-    { name: "Dragon", imgPath: "./img/Dragon_icon_LA.png", Normal: 1, Fighting: 1, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 1, Ghost: 1, Steel: 1, Fire: 0.5, Water: 0.5, Grass: 0.5, Electric: 0.5, Psychic: 1, Ice: 2, Dragon: 2, Dark: 1, Fairy: 2 },
-    { name: "Dark", imgPath: "./img/Dark_icon_LA.png", Normal: 1, Fighting: 2, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 2, Ghost: 0.5, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 0, Ice: 1, Dragon: 1, Dark: 0.5, Fairy: 2 },
-    { name: "Fairy", imgPath: "./img/Fairy_icon_LA.png", Normal: 1, Fighting: 0.5, Flying: 1, Poison: 2, Ground: 1, Rock: 1, Bug: 0.5, Ghost: 1, Steel: 2, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 1, Dragon: 0, Dark: 0.5, Fairy: 1 },
-    { name: "None", imgPath: "./img/None_icon_LA.png", Normal: 1, Fighting: 1, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 1, Ghost: 1, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 1 }
+    { name: "Normal", imgPath: "./img/Normal_icon_", Normal: 1, Fighting: 2, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 1, Ghost: 0, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 1 },
+    { name: "Fighting", imgPath: "./img/Fighting_icon_", Normal: 1, Fighting: 1, Flying: 2, Poison: 1, Ground: 1, Rock: 0.5, Bug: 0.5, Ghost: 1, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 2, Ice: 1, Dragon: 1, Dark: 0.5, Fairy: 2 },
+    { name: "Flying", imgPath: "./img/Flying_icon_", Normal: 1, Fighting: 0.5, Flying: 1, Poison: 1, Ground: 0, Rock: 2, Bug: 0.5, Ghost: 1, Steel: 1, Fire: 1, Water: 1, Grass: 0.5, Electric: 2, Psychic: 1, Ice: 2, Dragon: 1, Dark: 1, Fairy: 1 },
+    { name: "Poison", imgPath: "./img/Poison_icon_", Normal: 1, Fighting: 0.5, Flying: 1, Poison: 0.5, Ground: 2, Rock: 1, Bug: 0.5, Ghost: 1, Steel: 1, Fire: 1, Water: 1, Grass: 0.5, Electric: 1, Psychic: 2, Ice: 1, Dragon: 1, Dark: 1, Fairy: 0.5 },
+    { name: "Ground", imgPath: "./img/Ground_icon_", Normal: 1, Fighting: 1, Flying: 1, Poison: 0.5, Ground: 1, Rock: 0.5, Bug: 1, Ghost: 1, Steel: 1, Fire: 1, Water: 2, Grass: 2, Electric: 0, Psychic: 1, Ice: 2, Dragon: 1, Dark: 1, Fairy: 1 },
+    { name: "Rock", imgPath: "./img/Rock_icon_", Normal: 0.5, Fighting: 2, Flying: 0.5, Poison: 0.5, Ground: 2, Rock: 1, Bug: 1, Ghost: 1, Steel: 2, Fire: 0.5, Water: 2, Grass: 2, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 1 },
+    { name: "Bug", imgPath: "./img/Bug_icon_", Normal: 1, Fighting: 0.5, Flying: 2, Poison: 1, Ground: 0.5, Rock: 2, Bug: 1, Ghost: 1, Steel: 1, Fire: 2, Water: 1, Grass: 0.5, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 1 },
+    { name: "Ghost", imgPath: "./img/Ghost_icon_", Normal: 0, Fighting: 0, Flying: 1, Poison: 0.5, Ground: 1, Rock: 1, Bug: 0.5, Ghost: 2, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 2, Fairy: 1 },
+    { name: "Steel", imgPath: "./img/Steel_icon_", Normal: 0.5, Fighting: 2, Flying: 0.5, Poison: 0, Ground: 2, Rock: 0.5, Bug: 0.5, Ghost: 1, Steel: 0.5, Fire: 2, Water: 1, Grass: 0.5, Electric: 1, Psychic: 0.5, Ice: 0.5, Dragon: 0.5, Dark: 1, Fairy: 0.5 },
+    { name: "Fire", imgPath: "./img/Fire_icon_", Normal: 1, Fighting: 1, Flying: 1, Poison: 1, Ground: 2, Rock: 2, Bug: 0.5, Ghost: 1, Steel: 0.5, Fire: 0.5, Water: 2, Grass: 0.5, Electric: 1, Psychic: 1, Ice: 0.5, Dragon: 1, Dark: 1, Fairy: 0.5 },
+    { name: "Water", imgPath: "./img/Water_icon_", Normal: 1, Fighting: 1, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 1, Ghost: 1, Steel: 0.5, Fire: 0.5, Water: 0.5, Grass: 2, Electric: 2, Psychic: 1, Ice: 0.5, Dragon: 1, Dark: 1, Fairy: 1 },
+    { name: "Grass", imgPath: "./img/Grass_icon_", Normal: 1, Fighting: 1, Flying: 2, Poison: 2, Ground: 0.5, Rock: 1, Bug: 2, Ghost: 1, Steel: 1, Fire: 2, Water: 0.5, Grass: 0.5, Electric: 0.5, Psychic: 1, Ice: 2, Dragon: 1, Dark: 1, Fairy: 1 },
+    { name: "Electric", imgPath: "./img/Electric_icon_", Normal: 1, Fighting: 1, Flying: 0.5, Poison: 1, Ground: 2, Rock: 1, Bug: 1, Ghost: 1, Steel: 0.5, Fire: 1, Water: 1, Grass: 1, Electric: 0.5, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 1 },
+    { name: "Psychic", imgPath: "./img/Psychic_icon_", Normal: 1, Fighting: 0.5, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 2, Ghost: 2, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 0.5, Ice: 1, Dragon: 1, Dark: 2, Fairy: 1 },
+    { name: "Ice", imgPath: "./img/Ice_icon_", Normal: 1, Fighting: 2, Flying: 1, Poison: 1, Ground: 1, Rock: 2, Bug: 1, Ghost: 1, Steel: 2, Fire: 2, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 0.5, Dragon: 1, Dark: 1, Fairy: 1 },
+    { name: "Dragon", imgPath: "./img/Dragon_icon_", Normal: 1, Fighting: 1, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 1, Ghost: 1, Steel: 1, Fire: 0.5, Water: 0.5, Grass: 0.5, Electric: 0.5, Psychic: 1, Ice: 2, Dragon: 2, Dark: 1, Fairy: 2 },
+    { name: "Dark", imgPath: "./img/Dark_icon_", Normal: 1, Fighting: 2, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 2, Ghost: 0.5, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 0, Ice: 1, Dragon: 1, Dark: 0.5, Fairy: 2 },
+    { name: "Fairy", imgPath: "./img/Fairy_icon_", Normal: 1, Fighting: 0.5, Flying: 1, Poison: 2, Ground: 1, Rock: 1, Bug: 0.5, Ghost: 1, Steel: 2, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 1, Dragon: 0, Dark: 0.5, Fairy: 1 },
+    { name: "None", imgPath: "./img/None_icon_", Normal: 1, Fighting: 1, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 1, Ghost: 1, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 1 }
 ]
 
+var iconPref;
+
 function fillTypeDiv(typediv, divnum) {
+
+    if (document.getElementById('SwSh').checked) {
+        iconPref = 'SwSh';
+    } else {
+        iconPref = 'LA';
+    }
+
     for (const type of defTypes) {
         var img = document.createElement('img');
-        img.src = type.imgPath;
+        img.src = type.imgPath + iconPref + '.png';
         img.classList.add('typeimg');
 
         var div = document.createElement('div');
@@ -55,6 +64,13 @@ function fillTypeDiv(typediv, divnum) {
 }
 
 function updateWeakness() {
+
+    if (document.getElementById('SwSh').checked) {
+        iconPref = 'SwSh';
+    } else {
+        iconPref = 'LA';
+    }
+
     const wtype1 = defTypes.find(findtype => findtype.name === document.querySelector('input[name="type1"]:checked').id.slice(0, -1));
     const wtype2 = defTypes.find(findtype => findtype.name === document.querySelector('input[name="type2"]:checked').id.slice(0, -1));
     const wtext = {};
@@ -65,15 +81,15 @@ function updateWeakness() {
     const eff4x = [];
 
     var span = document.createElement('span');
-        span.id = 'typecombo';
-        span.innerHTML = "Type(s)"
+    span.id = 'typecombo';
+    span.innerHTML = "Type(s)"
 
     var img1 = document.createElement('img');
-    img1.src = wtype1.imgPath;
+    img1.src = wtype1.imgPath + iconPref + '.png';
     img1.classList.add('typeimg');
 
     var img2 = document.createElement('img');
-    img2.src = wtype2.imgPath;
+    img2.src = wtype2.imgPath + iconPref + '.png';
     img2.classList.add('typeimg');
 
     var wcdiv = document.createElement('div');
@@ -123,7 +139,7 @@ function updateWeakness() {
         wrdiv.appendChild(document.createElement('br'));
         eff4x.forEach(efftype => {
             effimg = document.createElement('img');
-            effimg.src = "./img/" + efftype + "_icon_LA.png";
+            effimg.src = "./img/" + efftype + "_icon_" + iconPref + '.png';
             effimg.classList.add('typeimg');
             wrdiv.appendChild(effimg);
         });
@@ -139,7 +155,7 @@ function updateWeakness() {
         wrdiv.appendChild(document.createElement('br'));
         eff2x.forEach(efftype => {
             effimg = document.createElement('img');
-            effimg.src = "./img/" + efftype + "_icon_LA.png";
+            effimg.src = "./img/" + efftype + "_icon_" + iconPref + '.png';
             effimg.classList.add('typeimg');
             wrdiv.appendChild(effimg);
         });
@@ -155,7 +171,7 @@ function updateWeakness() {
         wrdiv.appendChild(document.createElement('br'));
         effp5x.forEach(efftype => {
             effimg = document.createElement('img');
-            effimg.src = "./img/" + efftype + "_icon_LA.png";
+            effimg.src = "./img/" + efftype + "_icon_" + iconPref + '.png';
             effimg.classList.add('typeimg');
             wrdiv.appendChild(effimg);
         });
@@ -171,7 +187,7 @@ function updateWeakness() {
         wrdiv.appendChild(document.createElement('br'));
         effp25x.forEach(efftype => {
             effimg = document.createElement('img');
-            effimg.src = "./img/" + efftype + "_icon_LA.png";
+            effimg.src = "./img/" + efftype + "_icon_" + iconPref + '.png';
             effimg.classList.add('typeimg');
             wrdiv.appendChild(effimg);
         });
@@ -187,7 +203,7 @@ function updateWeakness() {
         wrdiv.appendChild(document.createElement('br'));
         eff0x.forEach(efftype => {
             effimg = document.createElement('img');
-            effimg.src = "./img/" + efftype + "_icon_LA.png";
+            effimg.src = "./img/" + efftype + "_icon_" + iconPref + '.png';
             effimg.classList.add('typeimg');
             wrdiv.appendChild(effimg);
         });
