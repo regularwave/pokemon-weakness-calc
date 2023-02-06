@@ -27,11 +27,7 @@ var iconPref;
 
 function fillTypeDiv(typediv, divnum) {
 
-    if (document.getElementById('SwSh').checked) {
-        iconPref = 'SwSh';
-    } else {
-        iconPref = 'LA';
-    }
+    iconPref = 'LA';
 
     for (const type of defTypes) {
         var img = document.createElement('img');
@@ -65,11 +61,7 @@ function fillTypeDiv(typediv, divnum) {
 
 function updateWeakness() {
 
-    if (document.getElementById('SwSh').checked) {
-        iconPref = 'SwSh';
-    } else {
-        iconPref = 'LA';
-    }
+    iconPref = 'LA';
 
     const wtype1 = defTypes.find(findtype => findtype.name === document.querySelector('input[name="type1"]:checked').id.slice(0, -1));
     const wtype2 = defTypes.find(findtype => findtype.name === document.querySelector('input[name="type2"]:checked').id.slice(0, -1));
